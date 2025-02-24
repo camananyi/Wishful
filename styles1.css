@@ -1,0 +1,50 @@
+body{
+  padding: 25px;
+}
+.title {
+	color: #5C6AC4;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:#DDDDDD;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+  color: #000000;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #89A2B2;
+  color: #f1f0e8;
+}
+
+.active {
+  background-color: #ebe7d4;
+}
+
+article {
+  flex: 1;
+  float: left;
+  width: 90%;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+
+
+
