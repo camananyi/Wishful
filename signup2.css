@@ -50,12 +50,26 @@ body {
     background-color: #c2e2ed;
 }
 
+<<<<<<< HEAD
+@media screen and (max-width: 600px) {
+  .square {
+      padding: 20px; /* Reduce padding on small screens */
+  }
+  input[type=submit] {
+      padding: 12px;
+  }
+}
+=======
 p{
   text-align: center;
   font-size: 18px;
   
 }
+>>>>>>> 38d23e07cc482f32428fd510c3da0a43749a4f32
 
+<<<<<<< HEAD
+
+=======
 @media screen and (max-width: 600px) {
   .square {
       padding: 20px; /* Reduce padding on small screens */
@@ -65,3 +79,5 @@ p{
   }
 }
 
+
+>>>>>>> 38d23e07cc482f32428fd510c3da0a43749a4f32
