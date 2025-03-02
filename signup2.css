@@ -40,7 +40,6 @@ input[type=submit]:hover {
   background-color: #cd8495;
 }
 
-
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -49,6 +48,12 @@ body {
     height: 100vh; /* view height */
     margin: 0;
     background-color: #c2e2ed;
+}
+
+p{
+  text-align: center;
+  font-size: 18px;
+  
 }
 
 @media screen and (max-width: 600px) {
