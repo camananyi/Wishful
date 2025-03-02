@@ -2,6 +2,8 @@
 .square {
     background: white;
     width: 400px;
+    max-width: 90%; /* Makes it responsive */
+    min-width: 300px; /* Ensures it doesn't get too small */
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
@@ -47,5 +49,14 @@ body {
     height: 100vh; /* view height */
     margin: 0;
     background-color: #c2e2ed;
+}
+
+@media screen and (max-width: 600px) {
+  .square {
+      padding: 20px; /* Reduce padding on small screens */
+  }
+  input[type=submit] {
+      padding: 12px;
+  }
 }
 
