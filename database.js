@@ -3,10 +3,11 @@ const {
 } = require("mysql");
 
 const pool = createPool({
-    host: "phpmyadmin.co",
-    user: "main",
+    host: "sql3.freesqldatabase.com",
+    user: "sql3766762",
     password: "WYuuwhz7xT",
     database: "sql3766762",
+    port: 3306,
     connectionLimit: 10
 })
 
