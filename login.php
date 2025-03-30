@@ -1,8 +1,6 @@
 <?php
 
-echo "Inside Post";
-
-    if(array_key_exists('button', $_POST)) {
+    if(array_key_exists('Login', $_POST)) {
         login();
     }
 
@@ -70,7 +68,7 @@ function login() {
     <input type="text" id="password" name="password">
 
     <input type="submit" name="Login"
-                class="button" value="button" />
+                class="button" value="Login" />
   </form>
   </div>
 
