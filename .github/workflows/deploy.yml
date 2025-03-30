@@ -1,24 +1,23 @@
-name: Deploy to CAM SFTP
+name: Deploy via SFTP
 
 on:
   push:
     branches:
-      - main  # or 'master' if your default branch is master
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Upload via SFTP with password
-        uses: appleboy/scp-action@v0.1.7
+      - name: Deploy to SFTP server
+        uses: milanmk/actions-file-deployer@master
         with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: ${{ secrets.SFTP_PORT }}
-          source: "./"  # change to dist/ or _site if needed
-          target: ${{ secrets.SFTP_TARGET_DIR }}
+          remote-protocol: "sftp"
+          remote-host: ${{ secrets.SFTP_HOST }}
+          remote-user: ${{ secrets.SFTP_USER }}
+          remote-password: ${{ secrets.SFTP_PASSWORD }}
+          remote-path: "/camgithub"
+          local-path: "./"
