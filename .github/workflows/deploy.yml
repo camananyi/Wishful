@@ -3,23 +3,30 @@ name: Deploy to IONOS via SFTP
 on:
   push:
     branches:
-      - main  # or the branch you want to trigger deploy from
+      - main  # Adjust if your default branch is named differently
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: SFTP Deploy
-      uses: pressidium/lftp-deploy@v1.3.0
-      with:
-        host: ${{ secrets.SFTP_HOST }}
-        port: ${{ secrets.SFTP_PORT || '22' }}
-        username: ${{ secrets.SFTP_USER }}
-        password: ${{ secrets.SFTP_PASSWORD }}
-        localDir: ./  # change to your build/output dir if needed
-        remoteDir: ${{ secrets.SFTP_TARGET_DIR }}
-        mirrorArgs: "--reverse --delete --verbose"
+    - name: Install lftp
+      run: sudo apt-get update && sudo apt-get install -y lftp
+
+    - name: Deploy via SFTP
+      env:
+        SFTP_HOST: ${{ secrets.SFTP_HOST }}
+        SFTP_PORT: ${{ secrets.SFTP_PORT }}
+        SFTP_USER: ${{ secrets.SFTP_USER }}
+        SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        SFTP_TARGET_DIR: ${{ secrets.SFTP_TARGET_DIR }}
+      run: |
+        lftp -e "
+          set sftp:auto-confirm yes;
+          open -u $SFTP_USER,$SFTP_PASSWORD -p $SFTP_PORT sftp://$SFTP_HOST;
+          mirror -R ./ $SFTP_TARGET_DIR --delete --verbose;
+          bye
+        "
