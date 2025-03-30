@@ -1,25 +1,29 @@
 name: Deploy to CAM SFTP
 
 on:
-  push:
-    branches:
-      - main  # or 'master' if your default branch is master
+push:
+branches:
+- main # or 'master' if your default branch is master
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+deploy:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+steps:
+- name: Checkout code
+uses: actions/checkout@v3
 
-      - name: Upload via SFTP with password
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: ${{ secrets.SFTP_PORT }}
-          source: "./"  # or specify a directory like "dist/", "_site", etc.
-          target: ${{ secrets.SFTP_TARGET_DIR }}
+- name: Test SSH connection
+run: |
+echo "Testing SSH connection..."
+sshpass -p "${{ secrets.SFTP_PASSWORD }}" ssh -o StrictHostKeyChecking=no -p ${{ secrets.SFTP_PORT }} ${{ secrets.SFTP_USER }}@${{ secrets.SFTP_HOST }} "echo SSH connection successful"
 
+- name: Upload via SFTP with password
+uses: appleboy/scp-action@v0.1.7
+with:
+host: ${{ secrets.SFTP_HOST }}
+username: ${{ secrets.SFTP_USER }}
+password: ${{ secrets.SFTP_PASSWORD }}
+port: ${{ secrets.SFTP_PORT }}
+source: "./" # or specify a directory like "dist/", "_site", etc.
+target: ${{ secrets.SFTP_TARGET_DIR }}
