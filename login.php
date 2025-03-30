@@ -1,5 +1,7 @@
 <?php
 
+echo "Inside Post";
+
 $is_invalid = false; 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -15,6 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = $result->fetch_assoc();
     
     if ($user) {
+        print_r($_POST);
+        echo "Sign Up Succesful";
+
         
         if (password_verify($_POST["password"], $user["password"])) {
 
