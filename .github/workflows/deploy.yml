@@ -1,27 +1,27 @@
-name: Deploy to CAMANANYI SFTP
+name: Deploy to CAM SFTP
 
 on:
-push:
-branches:
-- main # or "master", depending on your repo
+  push:
+    branches:
+      - main  # or 'master'
 
 jobs:
-deploy:
-runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-steps:
-- name: Checkout code
-uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-- name: Upload via SFTP
-uses: burnett01/rsync-deployments@5.2
-with:
-switches: -avzr --delete
-path: ./ # change if your site is in a subfolder like "dist" or "_site"
-remote_path: ${{ secrets.SFTP_TARGET_DIR }}
-remote_host: ${{ secrets.SFTP_HOST }}
-remote_user: ${{ secrets.SFTP_USER }}
-remote_port: ${{ secrets.SFTP_PORT }}
-remote_key: "" # leave this blank if you're using password
-env:
-DEPLOY_KEY: ${{ secrets.SFTP_PASSWORD }}
+      - name: Upload via SFTP
+        uses: burnett01/rsync-deployments@5.2
+        with:
+          switches: -avzr --delete
+          path: ./  # change to _site or dist/ if needed
+          remote_path: ${{ secrets.SFTP_TARGET_DIR }}
+          remote_host: ${{ secrets.SFTP_HOST }}
+          remote_user: ${{ secrets.SFTP_USER }}
+          remote_port: ${{ secrets.SFTP_PORT }}
+          remote_key: ""  # blank if using password
+        env:
+          DEPLOY_KEY: ${{ secrets.SFTP_PASSWORD }}
