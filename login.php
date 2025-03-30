@@ -7,7 +7,6 @@
 $is_invalid = false; 
 
 function login() {
-    echo "login has been called";
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
         $mysqli = require __DIR__ . "/database.php";
@@ -21,7 +20,6 @@ function login() {
         
         $result = $mysqli->query($sql);
         
-    
         $user = $result->fetch_assoc();
         
         if ($user) {
@@ -32,10 +30,11 @@ function login() {
             if (password_verify($_POST["password"], $user["password"])) {
     
                 session_start();
+                echo "password verify called";
                 
                 $_SESSION["user_id"] = $user["id"];
                 
-                header("Location: home1.html");
+                header("Location: index.php");
                 exit;
             }
         }
