@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,5 +28,16 @@
             <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
         </article>
     </section>
+
+    <?php if (isset($user)): ?>
+        
+        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
+        
+    <?php else: ?>
+        
+        <p><a href="login.php">Log in</a> or <a href="signup.html">sign up</a></p>
+        
+    <?php endif; ?>
+    
 </body>
 </html>

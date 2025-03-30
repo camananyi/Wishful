@@ -18,7 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
         if (password_verify($_POST["password"], $user["password"])) {
 
-            die ("Login Succesful");
+            session_start();
+            
+            $_SESSION["user_id"] = $user["id"];
+            
+            header("Location: home1.html");
+            exit;
         }
     }
 
