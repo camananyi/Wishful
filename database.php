@@ -1,8 +1,8 @@
 <?php
 
 $host = "WISHFUL_HOST";
-$dbname = "WISHFUL_NAME";
-$username = "WISHFUL_NAME";
+$dbname = "WISHFUL_DBNAME";
+$username = "WISHFUL_DBNAME";
 $password = "WISHFUL_PASSWORD";
 
 $mysqli = new mysqli($host, $username, $password, $dbname);
