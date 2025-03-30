@@ -33,8 +33,8 @@ $stmt->bind_param("ssss",
                   $_POST["email"],
                   $_POST["password"]);
                   
-if ($stmt->execute()) 
 
 print_r($_POST);
 echo "Sign Up Succesful";
 
+?>
