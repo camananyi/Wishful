@@ -21,4 +21,4 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           port: ${{ secrets.SFTP_PORT }}
           source: "./"  # change to dist/ or _site if needed
-          target: ${{ secrets.SFTP_TARGET_DIR }}
+          target: ""
