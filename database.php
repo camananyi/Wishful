@@ -1,9 +1,9 @@
 <?php
 
-$host = "WISHFUL_HOST";
-$dbname = "WISHFUL_DBNAME";
-$username = "WISHFUL_DBNAME";
-$password = "WISHFUL_PASSWORD";
+$host = "${{ secrets.WISHFUL_HOST }}";
+$dbname = "${{ secrets.WISHFUL_DBNAME }}";
+$username = "${{ secrets.WISHFUL_DBNAME }}";
+$password = "${{ secrets.WISHFUL_PASSWORD }}";
 
 $mysqli = new mysqli($host, $username, $password, $dbname);
 
@@ -13,3 +13,4 @@ if ($mysqli->connect_errno) {
 }
 
 return $mysqli;
+?>
