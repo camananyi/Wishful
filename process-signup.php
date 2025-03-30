@@ -34,7 +34,21 @@ $stmt->bind_param("ssss",
                   $_POST["password"]);
                   
 
-print_r($_POST);
-echo "Sign Up Succesful";
+// print_r($_POST);
+// echo "Sign Up Succesful";
+
+if ($stmt->execute()) {
+
+    header("Location: login.html");
+    exit;
+    
+} else {
+    
+    if ($mysqli->errno === 1062) {
+        die("email already taken");
+    } else {
+        die($mysqli->error . " " . $mysqli->errno);
+    }
+}
 
 ?>
