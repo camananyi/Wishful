@@ -12,8 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $user = $result->fetch_assoc();
     
-    var_dump($user);
-    exit;
+    if ($user) {
+        
+        if (password_verify($_POST["password"], $user["password"])) {
+            
+            die ("Login Succesful");
+        }
+    }
 }
 
 
