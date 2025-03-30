@@ -2,41 +2,48 @@
 
 echo "Inside Post";
 
-$is_invalid = false; 
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
-    $mysqli = require __DIR__ . "/database.php";
-    
-    $sql = sprintf("SELECT * FROM user
-                    WHERE username = '%s'",
-                   $mysqli->real_escape_string($_POST["username"]));
-
-    print_r($_POST["username"]);
-    print_r($sql);
-    
-    $result = $mysqli->query($sql);
-    
-
-    $user = $result->fetch_assoc();
-    
-    if ($user) {
-        print_r($_POST);
-        echo "Sign Up Succesful";
-
-        
-        if (password_verify($_POST["password"], $user["password"])) {
-
-            session_start();
-            
-            $_SESSION["user_id"] = $user["id"];
-            
-            header("Location: home1.html");
-            exit;
-        }
+    if(array_key_exists('button', $_POST)) {
+        login();
     }
 
-    $is_invalid = true;
+$is_invalid = false; 
+
+function login() {
+    echo "login has been called";
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+        $mysqli = require __DIR__ . "/database.php";
+        
+        $sql = sprintf("SELECT * FROM user
+                        WHERE username = '%s'",
+                       $mysqli->real_escape_string($_POST["username"]));
+    
+        print_r($_POST["username"]);
+        print_r($sql);
+        
+        $result = $mysqli->query($sql);
+        
+    
+        $user = $result->fetch_assoc();
+        
+        if ($user) {
+            print_r($_POST);
+            echo "Sign Up Succesful";
+    
+            
+            if (password_verify($_POST["password"], $user["password"])) {
+    
+                session_start();
+                
+                $_SESSION["user_id"] = $user["id"];
+                
+                header("Location: home1.html");
+                exit;
+            }
+        }
+    
+        $is_invalid = true;
+    } 
 }
 
 ?>
@@ -54,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   <div class="square">
     <form method="post">
-    <p>Login!?????Q!!!</p>
+    <p>Login!!</p>
     <label for="Uname">Username</label>
     <input type="text" id="username" name="username"
         value="<?= htmlspecialchars($_POST["username"] ?? "") ?>">
@@ -62,7 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <label for="Pass">Password</label>
     <input type="text" id="password" name="password">
 
-    <a class="button">Login</a>
+    <input type="submit" name="Login"
+                class="button" value="button" />
   </form>
   </div>
 
