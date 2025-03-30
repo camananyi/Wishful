@@ -11,9 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sql = sprintf("SELECT * FROM user
                     WHERE username = '%s'",
                    $mysqli->real_escape_string($_POST["username"]));
+
+    print_r($_POST["username"]);
+    print_r($sql);
     
     $result = $mysqli->query($sql);
     
+
     $user = $result->fetch_assoc();
     
     if ($user) {
