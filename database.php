@@ -5,10 +5,7 @@ $dbname = "sql3770314";
 $username = "sql3770314";
 $password = "yDQZ9XMRJ9";
 
-$mysqli = new mysqli(hostname: $host,
-                     username: $username,
-                     password: $password,
-                     database: $dbname);
+$mysqli = new mysqli($host, $username, $password, $dbname);
 
 // check for connection error
 if ($mysqli->connect_errno) {

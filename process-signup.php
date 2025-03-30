@@ -35,6 +35,6 @@ $stmt->bind_param("ssss",
                   
 if ($stmt->execute()) 
 
-print_r($POST);
+print_r($_POST);
 echo "Sign Up Succesful";
 
