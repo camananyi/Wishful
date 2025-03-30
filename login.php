@@ -25,6 +25,8 @@ function login() {
         if ($user) {
             print_r($_POST);
             echo "Sign Up Succesful";
+            print_r($_POST["password"]);
+            print_r($user["password"]);
     
             
             if (password_verify($_POST["password"], $user["password"])) {
