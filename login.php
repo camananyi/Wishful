@@ -39,15 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
 
   <div class="square">
-    <form method="post" novalidate>
+    <form method="post">
     <p>Login!</p>
     <label for="Uname">Username</label>
-    <input type="text" id="username" name="username">
+    <input type="text" id="username" name="username"
+        value="<?= htmlspecialchars($_POST["username"] ?? "") ?>">
 
     <label for="Pass">Password</label>
     <input type="text" id="password" name="password">
 
-    <a href="" class="button">Login</a>
+    <a href= "" class="button">Login</a>
   </form>
   </div>
 

@@ -39,13 +39,13 @@ $stmt->bind_param("ssss",
 
 if ($stmt->execute()) {
 
-    header("Location: login.html");
+    header("Location: login.php");
     exit;
     
 } else {
     
     if ($mysqli->errno === 1062) {
-        die("email already taken");
+        die("username already taken");
     } else {
         die($mysqli->error . " " . $mysqli->errno);
     }
