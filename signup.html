@@ -2,20 +2,24 @@
 <html>
   <head>
     <link rel="stylesheet" href="signup2.css" />
+    <script defer src="signup.js"></script>
   </head>
   <body>
     
   <div class="square">
-  <form action="process-form-php" method="post">
+  <form action="process-signup-php" method="post" novalidate>
     <p>Sign Up!</p>
+    <label for="Name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name..">
+
     <label for="Uname">Username</label>
-    <input type="text" id="Uname" name="username" placeholder="Your username..">
+    <input type="text" id="username" name="username" placeholder="Your username..">
 
     <label for="Pass">Password</label>
-    <input type="text" id="Pass" name="password" placeholder="Your password..">
+    <input type="text" id="password" name="password" placeholder="Your password..">
 
     <label for="Email">Email</label>
-    <input type="text" id="Email" name="email" placeholder="Your email..">
+    <input type="text" id="email" name="email" placeholder="Your email..">
   
     <a href="home1.html" class="button">Submit</a>
   </form>
