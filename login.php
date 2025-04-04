@@ -19,10 +19,12 @@ function login() {
         $result = $mysqli->query($sql);
         $user = $result->fetch_assoc();
 
-        if ($user && password_verify($_POST["password"], $user["password"])) {
+        if ($_POST["password"] === $user["password"]) {
             $_SESSION["user_id"] = $user["id"];
             header("Location: index.php");
             exit;
+        } else {
+            echo "Password did not match!";
         }
 
         $is_invalid = true;
