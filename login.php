@@ -23,10 +23,7 @@ function login() {
             $_SESSION["user_id"] = $user["id"];
             header("Location: index.php");
             exit;
-        } else {
-            echo "Password did not match!";
         }
-
         $is_invalid = true;
     }
 }
@@ -45,7 +42,7 @@ function login() {
 
 <div class="square">
     <form method="post">
-        <p>Login!!</p>
+        <p>Login!</p>
         <label for="username">Username</label>
         <input type="text" id="username" name="username"
                value="<?= htmlspecialchars($_POST["username"] ?? "") ?>" required>

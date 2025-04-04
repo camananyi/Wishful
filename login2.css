@@ -39,7 +39,7 @@ input[type=text]:focus {
     display: inline-block; 
     background: #d5b4bb;
     color: white;
-    width: 90%;
+    width: 100%;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
