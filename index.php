@@ -24,16 +24,16 @@ if (isset($_SESSION["user_id"])) {
 </head>
 <body>
 
-    <?php if (isset($user)): ?>
-        
-        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
-        <p>Hey <?= htmlspecialchars($user["username"]) ?></p>
-        
-    <?php else: ?>
-        
-        <p><a href="login.php">Log in</a> or <a href="signup.html">sign up</a></p>
-        
-    <?php endif; ?>
+<?php if (isset($user)): ?>
+    <div class="user-info">
+        <h2 class="title">Welcome back, <?= htmlspecialchars($user["name"]) ?>!</h2>
+        <p class="username-display">Username: <strong><?= htmlspecialchars($user["username"]) ?></strong></p>
+        <p><a class="logout-link" href="logout.php">Log out</a></p>
+    </div>
+<?php else: ?>
+    <p><a href="login.php">Log in</a> or <a href="signup.html">sign up</a></p>
+<?php endif; ?>
+
     <img src="https://assets.onecompiler.app/43954nvr8/439d86znu/_Bold%20Lettering%20Tumblr%20Banner.png" alt="Header Image" width="100%" height="165px">
     <section>
         <nav>

@@ -1,3 +1,33 @@
+.user-info {
+  background-color: #f1f0e8;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-left: 5px solid #5C6AC4;
+  border-radius: 10px;
+  width: fit-content;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.username-display {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+}
+
+.logout-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #5C6AC4;
+  text-decoration: none;
+}
+
+.logout-link:hover {
+  color: #3f4ba0;
+  text-decoration: underline;
+}
+
+
+
 body{
   padding: 25px;
 }
