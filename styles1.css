@@ -27,6 +27,30 @@
 }
 
 
+.guest-info {
+  background-color: #ebe7d4;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-left: 5px solid #89A2B2;
+  border-radius: 10px;
+  width: fit-content;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.login-link,
+.signup-link {
+  color: #5C6AC4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link:hover,
+.signup-link:hover {
+  text-decoration: underline;
+  color: #3f4ba0;
+}
+
+
 
 body{
   padding: 25px;

@@ -31,7 +31,9 @@ if (isset($_SESSION["user_id"])) {
         <p><a class="logout-link" href="logout.php">Log out</a></p>
     </div>
 <?php else: ?>
-    <p><a href="login.php">Log in</a> or <a href="signup.html">sign up</a></p>
+    <div class="guest-info">
+        <p>Welcome! <a class="login-link" href="login.php">Log in</a> or <a class="signup-link" href="signup.html">sign up</a> to get started!</p>
+    </div>
 <?php endif; ?>
 
     <img src="https://assets.onecompiler.app/43954nvr8/439d86znu/_Bold%20Lettering%20Tumblr%20Banner.png" alt="Header Image" width="100%" height="165px">

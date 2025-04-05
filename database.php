@@ -1,9 +1,9 @@
 <?php
 
-$host = "sql3.freesqldatabase.com";
-$dbname = "sql3770314";
-$username = "sql3770314";
-$password = "yDQZ9XMRJ9";
+$host = "sql105.infinityfree.com";
+$dbname = "if0_38682095_wishful";
+$username = "if0_38682095";
+$password = "97YQK2nv278B0";
 
 $mysqli = new mysqli($host, $username, $password, $dbname);
 
