@@ -1,3 +1,4 @@
 <?php
-echo "Hello, world!";
+    $mysqli = require __DIR__ . "/database.php";
+    echo "Database connected!";
 ?>
