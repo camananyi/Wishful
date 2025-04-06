@@ -4,6 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 // Database connection parameters
 $host = "db5017609052.hosting-data.io";
 $dbname = "dbs14095223";
@@ -22,14 +24,13 @@ if ($conn->connect_error) {
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
-$json = file_get_contents('php://input');
 error_log("Received JSON: " . $json);
-$data = json_decode($json, true);
+
 
 // Validate Input
 if (isset($data['name']) && isset($data['link'])) {
-    $name = $conn->real_escape_string($data['name']);
-    $link = $conn->real_escape_string($data['link']);
+    $ItemName = $conn->real_escape_string($data['name']);
+    $ItemLink = $conn->real_escape_string($data['link']);
 } else {
     // Handle the case where expected data is missing
     die("Error: Missing 'name' or 'link' in input data.");
@@ -40,6 +41,10 @@ if (isset($data['name']) && isset($data['link'])) {
 
 // Prepare and bind - put information into datatbase
 $stmt = $conn->prepare("INSERT INTO wishlist (ItemName, ItemLink) VALUES (?, ?)");
+// testing
+if ($stmt === false) {
+    die("Prepare failed: " . htmlspecialchars($conn->error));
+}
 $stmt->bind_param("ss", $ItemName, 
                         $ItemLink);
 
