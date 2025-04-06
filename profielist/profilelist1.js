@@ -28,11 +28,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!itemName) return;
 
-    const item = { id: Date.now(), name: itemName, link: itemLink };
+    const item = { id: Date.now(), 
+                  name: itemName, 
+                  link: itemLink };
     todoItems.push(item);
     saveToLocalStorage(); // Save the updated list
 
     renderItem(item);
+    const jsonData = JSON.stringify(item);
+
+    // Send the JSON data to the server using fetch API
+  fetch('callprofilelist.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: jsonData
+  })
+  .then(response => response.text())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
 
     inputField.value = "";
     linkInputField.value = "";
@@ -78,3 +93,4 @@ document.addEventListener("DOMContentLoaded", function () {
     if (event.key === "Enter") newElement();
   });
 });
+
