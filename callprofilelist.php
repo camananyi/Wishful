@@ -10,7 +10,7 @@ session_start(); // Start the session
 
 // Check if the user is logged in by verifying if 'user_id' exists in the session
 if (!isset($_SESSION['user_id'])) {
-    echo "<p style='color: pink;'> User is not logged in. </p>";
+    echo "<p style='color: red;'> User is not logged in. </p>";
 }
 
 $ProfileId = $_SESSION['user_id'];
@@ -49,7 +49,7 @@ if (isset($data['name']) && isset($data['link'])) {
 // $ItemLink = $conn->real_escape_string($data['link']);
 
 // Prepare and bind - put information into datatbase
-$stmt = $conn->prepare("INSERT INTO wishlist (ItemName, ItemLink) VALUES (?, ?)");
+$stmt = $conn->prepare("INSERT INTO wishlist (ProfileId, ItemName, ItemLink) VALUES (?, ?, ?)");
 // testing
 if ($stmt === false) {
     die("Prepare failed: " . htmlspecialchars($conn->error));
@@ -57,6 +57,9 @@ if ($stmt === false) {
 $stmt->bind_param("iss",$ProfileId,
                         $ItemName, 
                         $ItemLink);
+
+// $stmt->bind_param("ss", $ItemName, 
+//                         $ItemLink);
 
 // Execute the statement
 if ($stmt->execute()) {
