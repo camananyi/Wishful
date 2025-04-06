@@ -26,14 +26,22 @@ $json = file_get_contents('php://input');
 error_log("Received JSON: " . $json);
 $data = json_decode($json, true);
 
-// Validate and sanitize input
-$name = $conn->real_escape_string($data['name']);
-$link = $conn->real_escape_string($data['link']);
+// Validate Input
+if (isset($data['name']) && isset($data['link'])) {
+    $name = $conn->real_escape_string($data['name']);
+    $link = $conn->real_escape_string($data['link']);
+} else {
+    // Handle the case where expected data is missing
+    die("Error: Missing 'name' or 'link' in input data.");
+}
 
-// Prepare and bind
-$stmt = $conn->prepare("INSERT INTO wishlist (name, link) VALUES (?, ?)");
-$stmt->bind_param("ss", $name, 
-                        $link);
+// $ItemName = $conn->real_escape_string($data['name']);
+// $ItemLink = $conn->real_escape_string($data['link']);
+
+// Prepare and bind - put information into datatbase
+$stmt = $conn->prepare("INSERT INTO wishlist (ItemName, ItemLink) VALUES (?, ?)");
+$stmt->bind_param("ss", $ItemName, 
+                        $ItemLink);
 
 // Execute the statement
 if ($stmt->execute()) {
