@@ -1,23 +1,23 @@
 .user-info {
-  background-color: #f1f0e8;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-left: 5px solid #5C6AC4;
+  background-color: #ffffff;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-left: 5px solid #f1e5ac;
   border-radius: 10px;
-  width: fit-content;
+  width: 100%;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .username-display {
-  font-size: 14px;
-  color: #333;
-  margin-top: 5px;
+  font-size: 10px;
+  color: #f1e5ac;
+  margin-top: 2px;
 }
 
 .logout-link {
   display: inline-block;
-  margin-top: 10px;
-  color: #5C6AC4;
+  margin-top: 5px;
+  color: #f1e5ac;
   text-decoration: none;
 }
 
