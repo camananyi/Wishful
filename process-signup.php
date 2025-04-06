@@ -47,11 +47,12 @@ if ($stmt->execute()) {
     exit;
     
 } else {
-    
     if ($mysqli->errno === 1062) {
-        die("username already taken");
+        // Username already taken
+        echo "<p style='color: pink;'> That username is already taken. </p>";
     } else {
-        die($mysqli->error . " " . $mysqli->errno);
+        // Some other error
+        echo "<p style='color: pink;'>Oops! Something went wrong. </p>";
     }
 }
 

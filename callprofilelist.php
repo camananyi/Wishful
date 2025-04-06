@@ -6,6 +6,15 @@ error_reporting(E_ALL);
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+session_start(); // Start the session
+
+// Check if the user is logged in by verifying if 'user_id' exists in the session
+if (!isset($_SESSION['user_id'])) {
+    echo "<p style='color: pink;'> User is not logged in. </p>";
+}
+
+$ProfileId = $_SESSION['user_id'];
+
 // Database connection parameters
 $host = "db5017609052.hosting-data.io";
 $dbname = "dbs14095223";
@@ -45,7 +54,8 @@ $stmt = $conn->prepare("INSERT INTO wishlist (ItemName, ItemLink) VALUES (?, ?)"
 if ($stmt === false) {
     die("Prepare failed: " . htmlspecialchars($conn->error));
 }
-$stmt->bind_param("ss", $ItemName, 
+$stmt->bind_param("iss",$ProfileId,
+                        $ItemName, 
                         $ItemLink);
 
 // Execute the statement
