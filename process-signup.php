@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (empty($_POST["name"])) {
     die("Name is required");
 }
@@ -50,9 +54,5 @@ if ($stmt->execute()) {
         die($mysqli->error . " " . $mysqli->errno);
     }
 }
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 ?>
