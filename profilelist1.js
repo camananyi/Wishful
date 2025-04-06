@@ -43,14 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: jsonData
+    body: JSON.stringify(jsonData)
   })
   .then(response => response.text())
   .then(data => console.log(data))
   .catch(error => console.error('Error:', error));
 
-    inputField.value = "";
-    linkInputField.value = "";
+  inputField.value = "";
+  linkInputField.value = "";
   }
 
   function renderItem(item) {

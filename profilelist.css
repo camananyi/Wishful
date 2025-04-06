@@ -18,6 +18,7 @@
     background: #eee;
     font-size: 18px;
     transition: 1s;
+    text-decoration: none;
     
     /* make the list items unselectable */
     -webkit-user-select: none;
@@ -34,6 +35,7 @@
   /* Darker background-color on hover */
   ul li:hover {
     background: #ddd;
+    text-decoration: none;
   }
   
   /* When clicked on, add a background color and strike out text */
@@ -59,7 +61,7 @@
   
   /* Style the header */
   .header {
-    background-color: #93a5bb;
+    background-color: #a5bbd3;
     padding: 30px 40px;
     color: white;
     text-align: center;
@@ -100,7 +102,7 @@
   }
   
   .addBtn:hover {
-    background-color: #93a5bb;
+    background-color: #a5bbd3;
   }
 
   h1{
