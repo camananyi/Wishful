@@ -1,9 +1,9 @@
 <?php
 
-$host = "sql105.infinityfree.com";
-$dbname = "if0_38682095_wishful";
-$username = "if0_38682095";
-$password = "97YQK2nv278B0";
+$host = "db5017609052.hosting-data.io";
+$dbname = "dbs14095223";
+$username = "dbu2385668";
+$password = "Cam2011Code$MPk";
 
 $mysqli = new mysqli($host, $username, $password, $dbname);
 
