@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Your InfinityFree MySQL database details
-$host = "sql105.infinityfree.com";
+$host = "sql105.camille.great-site.net";
 $dbname = "if0_38682095_wishful";
 $username = "if0_38682095";
 $password = "97YQK2nv278B0"; // replace this with your actual password
