@@ -80,7 +80,7 @@
     margin: 0;
     border: none;
     border-radius: 0;
-    width: 30%;
+    width: 60%;
     padding: 10px;
     float: left;
     font-size: 16px;
@@ -103,7 +103,7 @@
   }
   
   .addBtn:hover {
-    background-color: #a5bbd3;
+    background-color: #bfdbe5;
   }
 
   /* Style the "Add" button */
@@ -122,7 +122,7 @@
   }
   
   .shareBtn:hover {
-    background-color: #a5bbd3;
+    background-color: #bfdbe5;
   }
 
   h1{
