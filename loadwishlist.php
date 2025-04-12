@@ -27,7 +27,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$fetched_items = $conn->prepare("SELECT id, name, link FROM wishlists WHERE user_id = ?");
+$fetched_items = $conn->prepare("SELECT id, name, link FROM wishlist WHERE user_id = ?");
 $fetched_items->bind_param("i", $ProfileId);
 $fetched_items->execute();
 $result = $fetched_items->get_result();
