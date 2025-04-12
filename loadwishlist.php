@@ -38,8 +38,10 @@ error_log("Received JSON: " . $json);
 
 // Get information from database
 // Fetch Items
-$fetched_items = "SELECT id, name, link FROM wishlists WHERE user_id = $Profile_Id";
-$result = $conn->query($fetched_items);
+$fetched_items = $conn->prepare("SELECT id, name, link FROM wishlists WHERE user_id = ?");
+$fetched_items-> bind_param("i", $ProfileId);
+$fetched_items-> execute();
+$result = $fetched_items-> get_result();
 
 $items = [];
 
