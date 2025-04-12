@@ -27,7 +27,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$fetched_items = $conn->prepare("SELECT id, name, link FROM wishlist WHERE user_id = ?");
+$fetched_items = $conn->prepare("SELECT id, ItemName, ItemLink FROM wishlist WHERE user_id = ?");
 $fetched_items->bind_param("i", $ProfileId);
 $fetched_items->execute();
 $result = $fetched_items->get_result();
@@ -38,8 +38,8 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $items[] = [
             'id' => $row['id'],
-            'name' => $row['name'],
-            'link' => $row['link']
+            'name' => $row['ItemName'],
+            'link' => $row['ItemLink']
         ];
     }
 } else {
