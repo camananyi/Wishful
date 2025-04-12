@@ -58,31 +58,31 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function load_saved() {
-    // fetch('loadwishlist.php', {
-    //   method: 'GET', 
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
-    // .then(response => response.json()) 
-    // .then(data => {
-    //   todoItems = data; // Store it in your todoItems array
-    //   todoItems.forEach(item => renderItem(item)); // Render each item
-    // })
-    // .catch(error => console.error('Error loading saved items:', error));
+    fetch('loadwishlist.php', {
+      method: 'GET', 
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json()) 
+    .then(data => {
+      todoItems = data; // Store it in your todoItems array
+      todoItems.forEach(item => renderItem(item)); // Render each item
+    })
+    .catch(error => console.error('Error loading saved items:', error));
 
-    fetch('loadwishlist.php')
-    .then(response => response.text())  // Get the raw response as text
-    .then(data => {
-      console.log('Raw data:', data);   // This will print out the HTML or error message
-      return JSON.parse(data);          // Try to parse JSON
-    })
-    .then(data => {
-      console.log('Saved items:', data);
-    })
-    .catch(error => {
-      console.error('Error loading saved items:', error);
-    });
+    // fetch('loadwishlist.php')
+    // .then(response => response.text())  // Get the raw response as text
+    // .then(data => {
+    //   console.log('Raw data:', data);   // This will print out the HTML or error message
+    //   return JSON.parse(data);          // Try to parse JSON
+    // })
+    // .then(data => {
+    //   console.log('Saved items:', data);
+    // })
+    // .catch(error => {
+    //   console.error('Error loading saved items:', error);
+    // });
   }
   
 
