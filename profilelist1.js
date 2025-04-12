@@ -1,3 +1,5 @@
+// add inactive wishlists
+
 document.addEventListener("DOMContentLoaded", function () {
   const inputField = document.getElementById("myInput");
   const linkInputField = document.createElement("input");
@@ -12,15 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
   let todoItems = [];
 
   // Load existing items from localStorage when page loads
-  const savedItems = localStorage.getItem("todoItemsRef");
-  if (savedItems) {
-    todoItems = JSON.parse(savedItems);
-    todoItems.forEach(item => renderItem(item));
-  }
+  // const savedItems = localStorage.getItem("todoItemsRef");
+  load_saved()
 
-  function saveToLocalStorage() {
-    localStorage.setItem("todoItemsRef", JSON.stringify(todoItems));
-  }
+  // if (savedItems) {
+  //   todoItems = JSON.parse(savedItems);
+  //   todoItems.forEach(item => renderItem(item));
+  // }
+
+  // function saveToLocalStorage() {
+  //   localStorage.setItem("todoItemsRef", JSON.stringify(todoItems));
+  // }
 
   function newElement() {
     const itemName = inputField.value.trim();
@@ -32,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   name: itemName, 
                   link: itemLink };
     todoItems.push(item);
-    saveToLocalStorage(); // Save the updated list
+    // saveToLocalStorage(); // Save the updated list
 
     renderItem(item);
     const jsonData = JSON.stringify(item);
@@ -52,6 +56,22 @@ document.addEventListener("DOMContentLoaded", function () {
   inputField.value = "";
   linkInputField.value = "";
   }
+
+  function load_saved() {
+    fetch('loadwishlist.php', {
+      method: 'GET', 
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json()) 
+    .then(data => {
+      todoItems = data; // Store it in your todoItems array
+      todoItems.forEach(item => renderItem(item)); // Render each item
+    })
+    .catch(error => console.error('Error loading saved items:', error));
+  }
+  
 
   function renderItem(item) {
     const li = document.createElement("li");
