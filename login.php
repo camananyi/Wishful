@@ -29,7 +29,7 @@ function login() {
 }
 
 if (($is_invalid) == true){
-    header("Location: invalidlogin.php");
+    header("Location: invalidlogin.html");
     exit;
 }
 ?>
