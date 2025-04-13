@@ -27,6 +27,11 @@ function login() {
         $is_invalid = true;
     }
 }
+
+if (($is_invalid) == true){
+    header("Location: invalidlogin.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +41,9 @@ function login() {
 </head>
 <body>
     
-<?php if ($is_invalid): ?>
+<!-- <?php if ($is_invalid): ?>
     <em>Invalid login</em>
-<?php endif; ?>
+<?php endif; ?> -->
 
 <div class="square">
     <form method="post">
