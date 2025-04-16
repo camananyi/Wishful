@@ -71,18 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(error => console.error('Error loading saved items:', error));
 
-    // fetch('loadwishlist.php')
-    // .then(response => response.text())  // Get the raw response as text
-    // .then(data => {
-    //   console.log('Raw data:', data);   // This will print out the HTML or error message
-    //   return JSON.parse(data);          // Try to parse JSON
-    // })
-    // .then(data => {
-    //   console.log('Saved items:', data);
-    // })
-    // .catch(error => {
-    //   console.error('Error loading saved items:', error);
-    // });
   }
   
 
@@ -115,7 +103,21 @@ document.addEventListener("DOMContentLoaded", function () {
       li.remove();
       todoItems = todoItems.filter(item => item.id !== id);
       saveToLocalStorage(); // Save changes after deletion
-    };
+
+      fetch('deleteitem.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: jsonData
+      })
+      .then(response => response.text())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+    
+      inputField.value = "";
+      linkInputField.value = "";
+      }
   }
 
   addButton.addEventListener("click", newElement);
