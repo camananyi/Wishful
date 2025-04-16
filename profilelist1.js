@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       todoItems = todoItems.filter(item => item.id !== id);
       // saveToLocalStorage(); // Save changes after deletion
 
-      const jsonData = JSON.stringify(item);
+      const jsonData = JSON.stringify({ id: id });
       fetch('deleteitem.php', {
         method: 'POST',
         headers: {
@@ -116,8 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(data => console.log(data))
       .catch(error => console.error('Error:', error));
     
-      inputField.value = "";
-      linkInputField.value = "";
       }
   }
 
