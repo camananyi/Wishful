@@ -17,15 +17,24 @@ $password = "Cam2011Code";
 // Create connection
 $conn = new mysqli($host, $username, $password, $dbname);
 
+// Make sure session has user_id
+if (!isset($_SESSION['user_id'])) {
+    echo "User not logged in.";
+    exit;
+}
+
 // Retrieve the JSON data from the request
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
 $ProfileId = $_SESSION['user_id'];
 
+
+$itemId = $data['id']; // This is the ID of the wishlist item
+
 // Prepare and bind the SQL statement
-$stmt = $conn->prepare("DELETE FROM wishlist WHERE ProfileId = ?");
-$stmt->bind_param("i", $id); // "i" means integer
+$stmt = $conn->prepare("DELETE FROM wishlist WHERE id = ? AND ProfileId = ?");
+$stmt->bind_param("ii", $itemId, $ProfileId); // both are integers
 
 // Execute the statement
 if ($stmt->execute()) {
