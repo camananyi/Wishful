@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     span.onclick = function () {
       li.remove();
       todoItems = todoItems.filter(item => item.id !== id);
-      saveToLocalStorage(); // Save changes after deletion
+      // saveToLocalStorage(); // Save changes after deletion
 
       fetch('deleteitem.php', {
         method: 'POST',
