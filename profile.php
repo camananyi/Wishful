@@ -45,12 +45,12 @@ if (isset($_SESSION["user_id"])) {
     }
 
     .form-popup .add {
-      background-color: #04AA6D;
+      background-color: #d5b4bb;
       color: white;
     }
 
     .form-popup .cancel {
-      background-color: red;
+      background-color: grey;
       color: white;
     }
 
@@ -59,12 +59,12 @@ if (isset($_SESSION["user_id"])) {
     }
 
     .addBtn {
-      font-size: 24px;
-      background: #04AA6D;
+      font-size: 34px;
+      background: #d5b4bb;
       color: white;
       padding: 10px 15px;
       cursor: pointer;
-      border-radius: 50%;
+      /*border-radius: 50%; */
     }
   </style>
 </head>
