@@ -23,9 +23,9 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["wishlist_name"];
     $user_id = $_SESSION["user_id"]; 
-    
+
     // Insert into the wishlists table
-    $query = "INSERT INTO wishlists (user_id, name) VALUES (?, ?)";
+    $query = "INSERT INTO wishlist (user_id, name) VALUES (?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("is", $user_id, $name);
     $stmt->execute();

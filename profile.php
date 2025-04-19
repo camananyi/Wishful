@@ -29,7 +29,7 @@ if (isset($_SESSION["user_id"])) {
     }
 
     .form-popup input[type=text] {
-      width: 100%;
+      width: 95%;
       padding: 10px;
       margin: 10px 0;
       background: #f1f1f1;
@@ -59,7 +59,7 @@ if (isset($_SESSION["user_id"])) {
     }
 
     .addBtn {
-      font-size: 34px;
+      font-size: 24px;
       background: #d5b4bb;
       color: white;
       padding: 10px 15px;
