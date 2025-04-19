@@ -33,11 +33,10 @@ if (isset($_SESSION["user_id"])) {
     <?php endif; ?>
 
     <!-- Button to reveal the form (can make fancier with JS later) -->
-    <form action="create_wishlist.php" method="POST">
-      <input type="text" name="wishlist_name" placeholder="New wishlist name" required>
-      <button class="addBtn" type="submit"> + </button>
+    <form action="create_wishlist.php" method="POST" style="display: flex; align-items: center; gap: 10px; padding: 10px;">
+        <input name="wishlist_name" type="text" placeholder="New wishlist name" style="padding: 5px; font-size: 16px;" required />
+        <button type="submit" style="padding: 10px 15px; font-size: 20px;">+</button>
     </form>
-  </div>
 
   <!-- Example wishlist card -->
   <div class="card">
