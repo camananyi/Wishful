@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION["user_id"]; 
 
     // Insert into the wishlists table
-    $query = "INSERT INTO wishlist (user_id, name) VALUES (?, ?)";
+    $query = "INSERT INTO multi_wishlist (ProfileId, WishlistName) VALUES (?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("is", $user_id, $name);
     $stmt->execute();
