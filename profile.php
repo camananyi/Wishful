@@ -24,7 +24,7 @@ else {
 <head>
   <title>My Wishlists</title>
   <link rel="stylesheet" href="profile.css" />
-  <script defer src="profilelist1.js"></script>
+  <script defer src="profile.js"></script>
 </head>
 
 <body>
@@ -46,7 +46,7 @@ else {
       <label for="wishlist_name"><b>Wishlist Name</b></label>
       <input type="text" placeholder="e.g. Birthday List" name="wishlist_name" required>
 
-      <button type="button" class="btn add" onclick="newElement()">Create</button> <!-- submit changes to button-->
+      <button type="sumbit" class="btn add" onclick="newElement()">Create</button> 
       <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </form>
   </div>
