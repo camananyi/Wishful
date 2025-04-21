@@ -63,6 +63,7 @@
     align-items: center; /* vertically center */
     gap: 10px; /* space between username and button */
     margin-bottom: 10px; /* optional spacing under the bar */
+    height: 80px;
   }
   
   .card {
@@ -92,4 +93,56 @@
   
   body{
     background-color: #c2e2ed;
+  }
+
+  /* POPUP STYLES */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: white;
+    max-width: 300px;
+    padding: 10px;
+  }
+
+  .form-popup input[type=text] {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #f1f1f1;
+    border: none;
+  }
+
+  .form-popup .btn {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  .form-popup .add {
+    background-color: #d5b4bb;
+    color: white;
+  }
+
+  .form-popup .cancel {
+    background-color: grey;
+    color: white;
+  }
+
+  .form-popup .btn:hover {
+    opacity: 0.9;
+  }
+
+  .addBtn {
+    font-size: 24px;
+    background: #d5b4bb;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    /*border-radius: 50%; */
   }
