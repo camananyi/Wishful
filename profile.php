@@ -59,7 +59,7 @@ else {
     </div>
   </div>
 
-  <ul id="myUL"></ul>
+  <ul id="myUL" class="card" ></ul>
 
 </body>
 </html>

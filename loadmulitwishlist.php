@@ -43,6 +43,7 @@ if ($result->num_rows > 0) {
         $items[] = [
             'id' => $row['WishlistId'],
             'name' => $row['WishlistName'],
+            'date' => $row['Date']
         ];
     }
 } else {

@@ -22,12 +22,13 @@ if ($conn->connect_error) {
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["wishlist_name"];
-    $user_id = $_SESSION["user_id"]; 
+    $user_id = $_SESSION["user_id"];
+    $date = date("m/d/Y");
 
     // Insert into the wishlists table
-    $query = "INSERT INTO multi_wishlist (ProfileId, WishlistName) VALUES (?, ?)";
+    $query = "INSERT INTO multi_wishlist (ProfileId, WishlistName, Date) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("is", $user_id, $name);
+    $stmt->bind_param("iss", $user_id, $name);
     $stmt->execute();
     $stmt->close();
 
