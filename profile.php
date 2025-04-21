@@ -59,7 +59,9 @@ else {
     </div>
   </div>
 
-  <ul id="myUL" class="card" ></ul>
+  <!-- <ul id="myUL" class ></ul> -->
+
+  <div id="wishlistsContainer"></div>
 
 </body>
 </html>
