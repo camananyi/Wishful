@@ -21,9 +21,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["wishlist_name"];
-    $user_id = $_SESSION["user_id"];
+    $input = json_decode(file_get_contents("php://input"), true);
+    $name = $input["name"] ?? null;
     $date = date("m/d/Y");
+    $user_id = $_SESSION["user_id"];
 
     // Insert into the wishlists table
     $query = "INSERT INTO multi_wishlist (ProfileId, WishlistName, Date) VALUES (?, ?, ?)";
