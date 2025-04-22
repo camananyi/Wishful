@@ -44,20 +44,20 @@ else {
   <div class="form-popup" id="popupForm" >
     <form action="create_wishlist.php" method="POST">
       <label for="wishlist_name"><b>Wishlist Name</b></label>
-      <input type="text" placeholder="e.g. Birthday List" name="wishlist_name" required>
+      <input type="text" id="wishlist_name" placeholder="e.g. Birthday List" name="wishlist_name" required>
 
       <button type="sumbit" class="btn add" onclick="newElement(event)">Create</button> 
       <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </form>
   </div>
 
-  <!-- Wishlist Card Example -->
+  <!-- Wishlist Card Example
   <div class="card" id="wishlistsContainer">
     <div class="container">
       <h4><b>Christmas List</b></h4>
       <p>13 April 2025</p>
     </div>
-  </div>
+  </div> -->
 
   <!-- <ul id="myUL" class ></ul> -->
 
