@@ -33,7 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 
     // Redirect back to the page
-    header("Location: profile.php"); 
+    // header("Location: profile.php"); 
+    echo json_encode(["success" => true]);
     exit();
 }
 ?>
