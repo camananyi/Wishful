@@ -30,11 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare($query);
     $stmt->bind_param("iss", $user_id, $name, $date);
     $stmt->execute();
+
+    echo json_encode(["success" => true]);
+
     $stmt->close();
+    $conn->close();
 
     // Redirect back to the page
     // header("Location: profile.php"); 
-    echo json_encode(["success" => true]);
     exit();
 }
 ?>

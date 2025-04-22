@@ -54,7 +54,12 @@ function openForm() {
       },
       body: JSON.stringify(wishitem)
     })
-      .then(res => res.json())
+      .then(res => res.text())
+      .then(text => {
+        console.log("Raw response:", text);
+        const data = JSON.parse(text); // manually parse
+        // now handle data like before
+      })
       .then(data => {
         // Optional: update the last item with server response (like an ID)
         console.log("Saved on server:", data);
