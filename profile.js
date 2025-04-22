@@ -75,7 +75,7 @@ function openForm() {
     content.className = "container";
   
     const title = document.createElement("h4");
-    title.innerHTML = `<b>${item.name}</b>`;
+    title.innerHTML = `${item.name}`;
   
     const date = document.createElement("p");
     date.textContent = item.date;

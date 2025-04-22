@@ -10,8 +10,6 @@ session_start(); // Start the session
 
 if (!isset($_SESSION['user_id'])) {
     die("User not logged in.");
-    session_destroy();
-
     header("Location: index.html");
     exit;
 }
@@ -31,7 +29,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$fetched_items = $conn->prepare("SELECT WishlistId, WishlistName FROM multi_wishlist WHERE ProfileId = ?");
+$fetched_items = $conn->prepare("SELECT WishlistId, WishlistName, Date FROM multi_wishlist WHERE ProfileId = ?");
 $fetched_items->bind_param("i", $ProfileId);
 $fetched_items->execute();
 $result = $fetched_items->get_result();
