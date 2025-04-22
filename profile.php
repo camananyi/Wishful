@@ -46,7 +46,7 @@ else {
       <label for="wishlist_name"><b>Wishlist Name</b></label>
       <input type="text" placeholder="e.g. Birthday List" name="wishlist_name" required>
 
-      <button type="sumbit" class="btn add" onclick="newElement()">Create</button> 
+      <button type="sumbit" class="btn add" onclick="newElement(event)">Create</button> 
       <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </form>
   </div>
