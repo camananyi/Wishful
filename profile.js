@@ -73,6 +73,11 @@ function openForm() {
   function renderItem(item) {
     const container = document.getElementById("wishlistsContainer");
   
+    // Create a clickable link
+    const link = document.createElement("a");
+    link.href = `profilelist.html?id=${WishlistId}`;
+    link.className = "wishlist-link"; // for styling
+
     const card = document.createElement("div");
     card.className = "card";
   
