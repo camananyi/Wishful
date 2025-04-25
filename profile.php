@@ -61,7 +61,7 @@ else {
 
   <!-- <ul id="myUL" class ></ul> -->
 
-  <div id="wishlistsContainer"></div>
+  <div id="wishlistsContainer" a href="profilelist.html"></div>
 
 </body>
 </html>
