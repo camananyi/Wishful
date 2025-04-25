@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         'Content-Type': 'application/json'
       }
     })
-    .then(response => response.json()) 
+    .then(response => response.json())
     .then(data => {
       todoItems = data; // Store it in your todoItems array
       todoItems.forEach(item => renderItem(item)); // Render each item

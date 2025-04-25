@@ -29,7 +29,7 @@ if (isset($_SESSION["user_id"])) {
         <nav>
             <ul>
                 <li><a class="active" href="#">Home</a></li>
-                <li><a href="profile.php">Profile</a></li>
+                <li><a href="profilelist.html">Profile</a></li>
                 <li><a href="#">Inspo</a></li>
                 <li><a href="#">Search</a></li>
                 <li style="float:right"><a href="#about">About</a></li>

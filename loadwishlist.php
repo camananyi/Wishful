@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $ProfileId = $_SESSION['user_id'];
-$WishlistId = $_GET['id'];
+
 
 $host = "db5017609052.hosting-data.io";
 $dbname = "dbs14095223";
