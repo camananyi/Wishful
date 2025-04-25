@@ -27,8 +27,8 @@ $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$fetched_items = $conn->prepare("SELECT id, ItemName, ItemLink FROM wishlist WHERE ProfileId = ? AND WishlistId = ?");
-$fetched_items->bind_param("ii", $ProfileId, $WishlistId);
+$fetched_items = $conn->prepare("SELECT id, ItemName, ItemLink FROM wishlist WHERE ProfileId = ?");
+$fetched_items->bind_param("i", $ProfileId);
 $fetched_items->execute();
 $result = $fetched_items->get_result();
 
