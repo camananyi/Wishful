@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   linkInputField.setAttribute("id", "myLinkInput");
   linkInputField.setAttribute("placeholder", "Enter a link (optional)");
   inputField.insertAdjacentElement("afterend", linkInputField);
+  document.querySelector(".shareBtn").addEventListener("click", openForm); //2
 
   const addButton = document.querySelector(".addBtn");
   const list = document.getElementById("myUL");
