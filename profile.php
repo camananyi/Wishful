@@ -24,7 +24,7 @@ else {
 <head>
   <title>My Wishlists</title>
   <link rel="stylesheet" href="profile.css" />
-  <script defer src="profile.js"></script>
+  <script defer src="profile1.js"></script>
 </head>
 
 <body>
