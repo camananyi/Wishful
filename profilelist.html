@@ -17,6 +17,7 @@
       <form action="sharewishlist.php" method="POST">
         <label for="share_user"><b>Username</b></label>
         <input type="text" id="share_user" placeholder="e.g. hello123" name="share_user" required>
+        <input type="hidden" name="wishlist_id" id="wishlist_id_input">
   
         <button type="sumbit" class="btn add">Create</button> 
         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -29,3 +30,11 @@
 
 </body>
 </html>
+
+<script>
+  // when page loads, set the wishlistId automatically
+  const params = new URLSearchParams(window.location.search);
+  const wishlistId = params.get('id'); // from URL
+
+  document.getElementById('wishlist_id_input').value = wishlistId;
+</script>
