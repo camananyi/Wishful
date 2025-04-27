@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // check for connection error
     if ($conn->connect_errno) {
-        die("Connection error: " . $mysqli->connect_error);
+        die("Connection error: " . $conn->connect_error);
     }
 
     // Find friend's email
