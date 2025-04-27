@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function openForm() {
+  console.log("Popup is opening");
   document.getElementById("popupForm").style.display = "block";
 }
 
