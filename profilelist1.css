@@ -99,13 +99,13 @@
   }
   
   .close:hover {
-    background-color: green;
+    background-color: rgba(245, 109, 109, 0.784);
     color: white;
   }
   
   /* Style the header */
   .header {
-    background-color: green;
+    background-color: #b8d6ee;
     padding: 30px 40px;
     color: #ce9aa5;
     text-align: center;
