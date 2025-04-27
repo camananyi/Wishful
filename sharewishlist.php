@@ -2,18 +2,12 @@
 
 session_start();
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
 // create profile if does not exsist
 // write proflie id and whislist id in sharedwishlist database
 // send an email
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $friendUsername = $_POST['share_username'];
+    $friendUsername = $_POST['share_user'];
     $WishlistId = isset($_GET['id']) ? intval($_GET['id']) : 0;
     
     $host = "db5017609052.hosting-data.io";
@@ -22,6 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = "Cam2011Code";
 
     $mysqli = new mysqli($host, $username, $password, $dbname);
+
+    // Create connection
+    $conn = new mysqli($host, $username, $password, $dbname);
 
     // check for connection error
     if ($mysqli->connect_errno) {
@@ -46,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($friendUsername) {
         $to = $friendEmail;
         $subject = "Someone shared a wishlist with you!";
-        $message = "Click here to see the wishlist: http://camananyi.com/camgithub/profilelist.html?id=$WishlistId";
+        $message = "Click here to see the wishlist: http://camananyi.com/camgithub/profilelist.html?id=$wishlistId";
         $headers = "From: noreply@wishful.com";
 
         if (mail($to, $subject, $message, $headers)) {
