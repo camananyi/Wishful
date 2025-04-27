@@ -7,13 +7,19 @@ session_start();
 // send an email
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // $wishlistName = $_POST['wishlist_name'];
-    $share_user = $_POST['friend_username'];
+    $friendUsername = $_POST['share_username'];
+    $WishlistId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    
+    $host = "db5017609052.hosting-data.io";
+    $dbname = "dbs14095223";
+    $username = "dbu2385668";
+    $password = "Cam2011Code";
 
-    // Database connection
-    $conn = new mysqli('localhost', 'your_db_user', 'your_db_password', 'your_db_name');
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    $mysqli = new mysqli($host, $username, $password, $dbname);
+
+    // check for connection error
+    if ($mysqli->connect_errno) {
+        die("Connection error: " . $mysqli->connect_error);
     }
 
     // Find friend's email
@@ -31,6 +37,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $friendEmail = $row['email'];
 
     // Now send the email
+    if ($friendUsername) {
+        $to = $friendEmail;
+        $subject = "Someone shared a wishlist with you!";
+        $message = "Click here to see the wishlist: http://camananyi.com/camgithub/profilelist.html?id=$WishlistId";
+        $headers = "From: noreply@wishful.com";
+
+        if (mail($to, $subject, $message, $headers)) {
+            echo "Email sent!";
+        } else {
+            echo "Failed to send email.";
+        }
+    } else {
+        echo "User not found.";
+    }
+    
+
 }
 ?>
 
