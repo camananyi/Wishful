@@ -9,7 +9,18 @@
     <h1>Wishlist!</h1>
     <input type="text" id="myInput" placeholder="Eg: Coach Bag...">
     <span class="addBtn">Add</span>
-    <span class="shareBtn">Share</span>
+    <span class="shareBtn" onclick="openForm()" >Share</span>
+  </div>
+
+  <!-- Popup Form -->
+  <div class="form-popup" id="popupForm" >
+    <form action="sharewishlist.php" method="POST">
+      <label for="Username"><b>Username</b></label>
+      <input type="text" id="share_user" placeholder="Hello123" name="username" required>
+
+      <button type="sumbit" class="btn add" onclick="newElement(event)">Create</button> 
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
   </div>
 
   <ul id="myUL"></ul>

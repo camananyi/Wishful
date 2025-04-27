@@ -10,6 +10,8 @@ session_start(); // Start the session
 
 if (!isset($_SESSION['user_id'])) {
     die("User not logged in.");
+    header("Location: index.html");
+    exit;
 }
 
 $ProfileId = $_SESSION['user_id'];
