@@ -9,8 +9,8 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 session_start(); // Start the session
 
 if (!isset($_SESSION['user_id'])) {
-    die("User not logged in.");
     header("Location: index.html");
+    die("User not logged in.");
     exit;
 }
 

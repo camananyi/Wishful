@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     function load_saved() {
-      fetch('loadwishlist.php', {
+      fetch('loadwishlist.php?id=' + wishlistId, {
         method: 'GET', 
         headers: {
           'Content-Type': 'application/json'
