@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Find friend's email
-    $stmt = $conn->prepare("SELECT email FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT email FROM user WHERE username = ?");
     $stmt->bind_param("s", $friendUsername);
     $stmt->execute();
     $result = $stmt->get_result();
