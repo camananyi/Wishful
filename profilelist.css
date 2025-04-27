@@ -1,4 +1,47 @@
 
+  /* POPUP STYLES */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: white;
+    max-width: 300px;
+    padding: 10px;
+  }
+
+  .form-popup input[type=text] {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #f1f1f1;
+    border: none;
+  }
+
+  .form-popup .btn {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  .form-popup .add {
+    background-color: #d5b4bb;
+    color: white;
+  }
+
+  .form-popup .cancel {
+    background-color: grey;
+    color: white;
+  }
+
+  .form-popup .btn:hover {
+    opacity: 0.9;
+  }
+
 /* Include the padding and border in an element's total width and height */
 * {
     box-sizing: border-box;
@@ -129,45 +172,3 @@
     font-size: 30px;
   }
   
-   /* POPUP STYLES */
-   .form-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-    background-color: white;
-    max-width: 300px;
-    padding: 10px;
-  }
-
-  .form-popup input[type=text] {
-    width: 95%;
-    padding: 10px;
-    margin: 10px 0;
-    background: #f1f1f1;
-    border: none;
-  }
-
-  .form-popup .btn {
-    width: 100%;
-    padding: 12px;
-    margin: 5px 0;
-    border: none;
-    cursor: pointer;
-  }
-
-  .form-popup .add {
-    background-color: #d5b4bb;
-    color: white;
-  }
-
-  .form-popup .cancel {
-    background-color: grey;
-    color: white;
-  }
-
-  .form-popup .btn:hover {
-    opacity: 0.9;
-  }
