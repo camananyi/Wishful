@@ -9,20 +9,20 @@
     <h1>Wishlist!</h1>
     <input type="text" id="myInput" placeholder="Eg: Coach Bag...">
     <span class="addBtn">Add</span>
-    <span class="shareBtn" onclick="openForm()" >Share</span>
+    <span class="shareBtn" onclick="openForm()">Share</span>
   </div>
 
-  <!-- Popup Form -->
-  <div class="form-popup" id="popupForm" >
-    <form action="sharewishlist.php" method="POST">
-      <label for="Username"><b>Username</b></label>
-      <input type="text" id="share_user" placeholder="example: Hello123" name="username" required>
-
-      <button type="submit" class="btn add">Create</button> 
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </form>
-  </div>
-
+    <!-- Popup Form -->
+    <div class="form-popup" id="popupForm" >
+      <form action="create_wishlist.php" method="POST">
+        <label for="wishlist_name"><b>Wishlist Name</b></label>
+        <input type="text" id="wishlist_name" placeholder="e.g. Birthday List" name="wishlist_name" required>
+  
+        <button type="sumbit" class="btn add" onclick="newElement(event)">Create</button> 
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+    
   <div class="wishlist-area">
     <ul id="myUL"></ul>
   </div>
