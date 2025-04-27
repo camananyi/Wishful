@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($friendUsername) {
         $to = $friendEmail;
         $subject = "Someone shared a wishlist with you!";
-        $message = "Click here to see the wishlist: http://camananyi.com/camgithub/profilelist.html?id=$wishlistId";
+        $message = "Click here to see the wishlist: http://camananyi.com/camgithub/profilelist.html?id=$WishlistId";
         $headers = "From: noreply@wishful.com";
 
         if (mail($to, $subject, $message, $headers)) {
