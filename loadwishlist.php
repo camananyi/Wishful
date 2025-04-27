@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $ProfileId = $_SESSION['user_id'];
-$WishlistId = intval($data['wishlist_id']); // sanitize id
+$WishlistId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 
 $host = "db5017609052.hosting-data.io";
