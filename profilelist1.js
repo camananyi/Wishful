@@ -7,7 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
   linkInputField.setAttribute("id", "myLinkInput");
   linkInputField.setAttribute("placeholder", "Enter a link (optional)");
   inputField.insertAdjacentElement("afterend", linkInputField);
-  document.querySelector(".shareBtn").addEventListener("click", openForm); //2
+  console.log("DOM is loaded, script is running"); // This should log in the console
+
+  document.querySelector(".shareBtn").addEventListener("click", function() {
+    console.log("Share button clicked"); // This should log when the share button is clicked
+    openForm();
+  });
 
   const addButton = document.querySelector(".addBtn");
   const list = document.getElementById("myUL");
