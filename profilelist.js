@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Share button clicked"); // This should log when the share button is clicked
       openForm();
     });
+
+    const params = new URLSearchParams(window.location.search);
+    const wishlistId = params.get('id');
   
     const addButton = document.querySelector(".addBtn");
     const list = document.getElementById("myUL");
@@ -40,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
       const item = { id: Date.now(), 
                     name: itemName, 
-                    link: itemLink };
+                    link: itemLink,
+                    wishlist_id: wishlistId };
       todoItems.push(item);
       // saveToLocalStorage(); // Save the updated list
   

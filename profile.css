@@ -85,6 +85,8 @@
     width: 160px;
     height: 160px;
     background-color: #ffffff;
+    text-decoration: none;
+    color: black;
   }
   
   /* On mouse-over, add a deeper shadow */

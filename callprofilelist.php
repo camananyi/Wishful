@@ -41,6 +41,7 @@ error_log("Received JSON: " . $json);
 if (isset($data['name']) && isset($data['link'])) {
     $ItemName = $conn->real_escape_string($data['name']);
     $ItemLink = $conn->real_escape_string($data['link']);
+    $WishlistId = intval($data['wishlist_id']); // sanitize id
 } else {
     // Handle the case where expected data is missing
     die("Error: Missing 'name' or 'link' in input data.");
@@ -50,14 +51,15 @@ if (isset($data['name']) && isset($data['link'])) {
 // $ItemLink = $conn->real_escape_string($data['link']);
 
 // Prepare and bind - put information into datatbase
-$stmt = $conn->prepare("INSERT INTO wishlist (ProfileId, ItemName, ItemLink) VALUES (?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO wishlist (ProfileId, WishlistId, ItemName, ItemLink) VALUES (?, ?, ?, ?)");
 // testing
 if ($stmt === false) {
     die("Prepare failed: " . htmlspecialchars($conn->error));
 }
-$stmt->bind_param("iss",$ProfileId,
-                        $ItemName, 
-                        $ItemLink);
+$stmt->bind_param("iiss", $ProfileId, 
+                          $WishlistId, 
+                          $ItemName, 
+                          $ItemLink);
 
 // $stmt->bind_param("ss", $ItemName, 
 //                         $ItemLink);
