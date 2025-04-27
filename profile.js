@@ -75,7 +75,7 @@
   
     // Create a clickable link
     const link = document.createElement("a");
-    link.href = `profilelist.html?id=${WishlistId}`;
+    link.href = `profilelist.html?id=${item.id}`;
     link.className = "wishlist-link"; // for styling
 
     const card = document.createElement("div");
@@ -94,6 +94,8 @@
     content.appendChild(date);
     card.appendChild(content);
   
-    container.appendChild(card);
+    link.appendChild(card); 
+
+    container.appendChild(link); 
   }
   
