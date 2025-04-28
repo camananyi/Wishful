@@ -1,0 +1,15 @@
+{
+    "name": "codespace/wishful",
+    "autoload": {
+        "psr-4": {
+            "Codespace\\Wishful\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "camananyi",
+            "email": "62218927+camananyi@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}

@@ -38,6 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = $result->fetch_assoc();
     $friendEmail = $row['email'];
 
+    
+
     // Now send the email
     if ($friendUsername) {
         $to = $friendEmail;
@@ -45,11 +47,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Click here to see the wishlist: http://camananyi.com/camgithub/profilelist.html?id=$WishlistId";
         $headers = "From: noreply@wishful.com";
 
-        if (mail($to, $subject, $message, $headers)) {
-            echo "Email sent!";
-        } else {
-            echo "Failed to send email.";
-        }
+        // Gmail SMTP server settings
+        $smtpHost = 'smtp.gmail.com';
+        $smtpPort = 587;
+        $username = 'camiwishful@gmail.com';
+        $password = 'Starstar11!';
+
+    // Send email using SMTP
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = $smtpHost;
+        $mail->SMTPAuth = true;
+        $mail->Username = $username;
+        $mail->Password = $password;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = $smtpPort;
+
+        $mail->setFrom('noreply@wishful.com', 'Camille');
+        $mail->addAddress($to);
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+
+        $mail->send();
+        echo 'Email has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
     } else {
         echo "User not found.";
     }
