@@ -7,6 +7,11 @@ session_start();
 // write proflie id and whislist id in sharedwishlist database
 // send an email
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $friendUsername = $_POST['share_user'];
     $WishlistId = intval($_POST['wishlist_id']);
@@ -51,33 +56,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $smtpHost = 'smtp.gmail.com';
         $smtpPort = 587;
         $username = 'camiwishful@gmail.com';
-        $password = 'Starstar11!';
+        $emailpassword = 'Starstar11!';
     }
     // Send email using SMTP
-    // $mail = new PHPMailer(true);
-    // try {
-    //     $mail->isSMTP();
-    //     $mail->Host = $smtpHost;
-    //     $mail->SMTPAuth = true;
-    //     $mail->Username = $username;
-    //     $mail->Password = $password;
-    //     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    //     $mail->Port = $smtpPort;
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = $smtpHost;
+        $mail->SMTPAuth = true;
+        $mail->Username = $username;
+        $mail->Password = $emailpassword;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = $smtpPort;
 
-    //     $mail->setFrom('noreply@wishful.com', 'Camille');
-    //     $mail->addAddress($to);
-    //     $mail->Subject = $subject;
-    //     $mail->Body    = $message;
+        $mail->setFrom('noreply@wishful.com', 'Camille');
+        $mail->addAddress($to);
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
 
-    //     $mail->send();
-    //     echo 'Email has been sent';
-    // } catch (Exception $e) {
-    //     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    // }
-    // } else {
-    //     echo "User not found.";
-    // }
+        $mail->send();
+        echo 'Email has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+    } else {
+        echo "User not found.";
+    }
     
 
-}
+
 ?>
