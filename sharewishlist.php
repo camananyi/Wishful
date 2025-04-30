@@ -7,12 +7,14 @@ session_start();
 // write proflie id and whislist id in sharedwishlist database
 // send an email
 
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/vendor/autoload.php';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    require __DIR__ . '/vendor/autoload.php';
+
     $friendUsername = $_POST['share_user'];
     $WishlistId = intval($_POST['wishlist_id']);
     
@@ -69,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = $smtpPort;
 
-        $mail->setFrom('noreply@wishful.com', 'Camille');
+        $mail->sentFrom('noreply@wishful.com', 'Camille'); //set
         $mail->addAddress($to);
         $mail->Subject = $subject;
         $mail->Body    = $message;
