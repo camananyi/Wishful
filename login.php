@@ -21,7 +21,7 @@ function login() {
 
         if ($_POST["password"] === $user["password"]) {
             $_SESSION["user_id"] = $user["id"];
-            header("Location: index.php");
+            header("Location: profile.php"); // index.php
             exit;
         }
         $is_invalid = true;

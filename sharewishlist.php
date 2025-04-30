@@ -52,33 +52,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $smtpPort = 587;
         $username = 'camiwishful@gmail.com';
         $password = 'Starstar11!';
-
+    }
     // Send email using SMTP
-    $mail = new PHPMailer(true);
-    try {
-        $mail->isSMTP();
-        $mail->Host = $smtpHost;
-        $mail->SMTPAuth = true;
-        $mail->Username = $username;
-        $mail->Password = $password;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = $smtpPort;
+    // $mail = new PHPMailer(true);
+    // try {
+    //     $mail->isSMTP();
+    //     $mail->Host = $smtpHost;
+    //     $mail->SMTPAuth = true;
+    //     $mail->Username = $username;
+    //     $mail->Password = $password;
+    //     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    //     $mail->Port = $smtpPort;
 
-        $mail->setFrom('noreply@wishful.com', 'Camille');
-        $mail->addAddress($to);
-        $mail->Subject = $subject;
-        $mail->Body    = $message;
+    //     $mail->setFrom('noreply@wishful.com', 'Camille');
+    //     $mail->addAddress($to);
+    //     $mail->Subject = $subject;
+    //     $mail->Body    = $message;
 
-        $mail->send();
-        echo 'Email has been sent';
-    } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }
-    } else {
-        echo "User not found.";
-    }
+    //     $mail->send();
+    //     echo 'Email has been sent';
+    // } catch (Exception $e) {
+    //     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    // }
+    // } else {
+    //     echo "User not found.";
+    // }
     
 
 }
 ?>
-
