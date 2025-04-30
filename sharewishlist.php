@@ -11,9 +11,9 @@ session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+require __DIR__ . '/vendor/autoload.php';
 
-    require __DIR__ . '/vendor/autoload.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $friendUsername = $_POST['share_user'];
     $WishlistId = intval($_POST['wishlist_id']);
