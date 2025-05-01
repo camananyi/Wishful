@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $friendUsername = $_POST['share_user'];
     $WishlistId = intval($_POST['wishlist_id']);
+    $senderName = $_SESSION['name']; // or $_SESSION['name'] if you saved the real name
     
     $host = "db5017609052.hosting-data.io";
     $dbname = "dbs14095223";
@@ -50,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Now send the email
     if ($friendUsername) {
         $to = $friendEmail;
-        $subject = "Someone shared a wishlist with you!";
+        $subject = "$senderName shared a wishlist with you!";
         $message = "Click here to see the wishlist: http://camananyi.com/camgithub/profilelist.html?id=$WishlistId";
         $headers = "From: noreply@wishful.com";
 
