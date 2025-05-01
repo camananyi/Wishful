@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $smtpHost = 'smtp.gmail.com';
         $smtpPort = 587;
         $username = 'camiwishful@gmail.com';
-        $emailpassword = 'Starstar11!';
+        $emailpassword = 'tpoc oqks zeij btot';
     }
     // Send email using SMTP
     $mail = new PHPMailer(true);
