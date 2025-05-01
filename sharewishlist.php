@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = $smtpPort;
 
-        $mail->sentFrom('noreply@wishful.com', 'Camille'); //set
+        $mail->setFrom('noreply@wishful.com', 'Camille'); //set
         $mail->addAddress($to);
         $mail->Subject = $subject;
         $mail->Body    = $message;
